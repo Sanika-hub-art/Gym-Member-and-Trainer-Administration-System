@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Favicon -->
+    <link href="static/static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <!-- Libraries  -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h1 class="m-0 display-4 text-primary text-uppercase">Gymster</h1>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary text-uppercase">Gymster</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/plans" class="nav-item nav-link">Membership Plans</a>
+                        <a href="/posts" class="nav-item nav-link">Posts</a>
+                        <a href="/about" class="nav-item nav-link">About</a>
+                        <a href="/contact" class="nav-item nav-link">Contact</a>
+                    </div>
+<!--                    <a href="" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block" style="margin-left:280px;">Join Us</a>-->
+                    <a href="/login" role="button" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Login</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<h2 style="text-align: center; margin-top: 50px; margin-bottom: 50px;">Registration Form </h2>
+<form style="border-left: 100px solid #FFFFFF; border-right: 100px solid #FFFFFF; margin-top: 2px;" action="/membership" method="post" onsubmit="return validateForm()">
+    <div class="row mb-4">
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="text" id="first_name" class="form-control" name="first_name" required minlength="2" maxlength="50" pattern="[A-Za-z]+" title="Please enter a valid name (letters only)." />
+                <label class="form-label" for="first_name">First name</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="text" id="last_name" class="form-control" name="last_name" required minlength="2" maxlength="50" pattern="[A-Za-z]+" title="Please enter a valid name (letters only)." />
+                <label class="form-label" for="last_name">Last name</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="text" id="address" class="form-control" name="address" required minlength="5" maxlength="100" />
+        <label class="form-label" for="address">Address</label>
+    </div>
+
+    <!-- Email input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="email" id="email" class="form-control" name="email" required />
+        <label class="form-label" for="email">Email</label>
+    </div>
+
+    <!-- Number input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="tel" id="phone_number" class="form-control" name="phone_number" required pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number." />
+        <label class="form-label" for="phone_number">Phone</label>
+    </div>
+
+    <!-- Username and Password -->
+    <div class="row mb-4">
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="text" id="username" class="form-control" name="username" required minlength="5" maxlength="20" />
+                <label class="form-label" for="username">Username</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="password" id="password" class="form-control" name="password" required minlength="8" maxlength="20" />
+                <label class="form-label" for="password">Password</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Personal Details -->
+    <h3 style="text-align: center; margin-top: 100px; margin-bottom : 50px;">Personal Details</h3>
+    <div class="row mb-4">
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="date" id="date_of_birth" class="form-control" name="date_of_birth" required />
+                <label class="form-label" for="date_of_birth">Date of Birth</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md">
+            <div class="form-outline">
+                <select class="form-select" id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <label class="form-label" for="gender">Gender</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weight and Height -->
+    <div class="row mb-4">
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="number" id="weight" class="form-control" name="weight" required min="30" max="300" />
+                <label class="form-label" for="weight">Weight (kg)</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md">
+            <div data-mdb-input-init class="form-outline">
+                <input type="number" id="height" class="form-control" name="height" required min="50" max="300" />
+                <label class="form-label" for="height">Height (cm)</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blood Group and Health Conditions -->
+    <div class="row mb-4">
+        <div class="col-sm-12 col-md">
+            <div class="form-outline">
+                <select class="form-select" id="blood_group" name="blood_group" required>
+                    <option value="" disabled selected>Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <label class="form-label" for="blood_group">Blood Group</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-sm-12">
+            <label class="form-label">History of Health Conditions:</label>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="has_heart_problem" value="heartProblem" name="has_heart_problem">
+                <label class="form-check-label" for="has_heart_problem">
+                    History of Heart Problem
+                </label>
+            </div>
+            <div class="col-sm-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="has_heart_problem" value="heartProblem" name="has_heart_problem">
+                <label class="form-check-label" for="has_heart_problem">
+                    History of Heart Problem
+                </label>
+            </div>
+             <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_hypertension" value="hypertension" name="has_hypertension">
+            <label class="form-check-label" for="has_hypertension">
+                Hypertension/Hypotension
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_diabetes" value="diabetes" name="has_diabetes">
+            <label class="form-check-label" for="has_diabetes">
+                Diabetes/Thyroid
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_breathing_problem" value="breathingProblem" name="has_breathing_problem">
+            <label class="form-check-label" for="has_breathing_problem">
+                Breathing or Lungs Problem
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_hernia" value="hernia" name="has_hernia">
+            <label class="form-check-label" for="has_hernia">
+                Hernia
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_fracture_dislocation" value="fractureDislocation" name="has_fracture_dislocation">
+            <label class="form-check-label" for="has_fracture_dislocation">
+                Fracture dislocation
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_back_pain" value="backPain" name="has_back_pain">
+            <label class="form-check-label" for="has_back_pain">
+                Back joint/muscle pain
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="has_knee_problem" value="kneeProblem" name="has_knee_problem">
+            <label class="form-check-label" for="has_knee_problem">
+                Knee problem
+            </label>
+        </div>
+        </div>
+    </div>
+
+    <div class="form-outline" style="margin-top: 50px;">
+        <textarea class="form-control" id="recent_surgery_details" rows="4" name="recent_surgery_details" required minlength="10" maxlength="500"></textarea>
+        <label class="form-label" for="recent_surgery_details"> Detail About Health Issue (If any) </label>
+    </div>
+
+    <!-- Submit button -->
+    <div class="row mb-4" style="margin-top: 100px; margin-bottom: 100px;">
+        <div class="col-sm-12 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-lg">Next</button>
+        </div>
+    </div>
+</form>
+
+<!-- JavaScript for form validation -->
+<script>
+    function validateForm() {
+        // Example JavaScript validation (you can customize as needed)
+        var phoneRegex = /^\d{10}$/;
+        var phoneInput = document.getElementById('phone_number').value;
+        if (!phoneRegex.test(phoneInput)) {
+            alert('Please enter a valid 10-digit phone number.');
+            return false;
+        }
+
+        // Add more custom validation if required
+
+        return true; // Return true if the form is valid, false otherwise
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="static/static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center horizontally */
+            text-align: left; /* Align text to the left */
+        }
+
+        .photo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .photo-container img {
+            max-width: 200px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-container p {
+            margin: 10px 0;
+        }
+
+        .info-container p strong {
+            font-weight: bold;
+        }
+
+        .info-container p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                <h1 class="m-0 display-4 text-primary text-uppercase">Gymster</h1>
+            </a>
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary text-uppercase">Gymster</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="/" class="nav-item nav-link active">Home</a>
+                        <a href="/plans" class="nav-item nav-link">Membership Plans</a>
+                        <a href="team.html" class="nav-item nav-link">Posts</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+<!--                    <a href="" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block" style="margin-left:280px;">Join Us</a>-->
+                    <a href="/logout" role="button" class="btn btn-primary py-md-3 px-md-5 d-none d-lg-block">Log out</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-center mb-4">Profile</h2> <!-- Added headline "Profile" -->
+    <div class="photo-container">
+        <img src="{{ member_data[18] }}" alt="Profile Photo">
+    </div>
+    <div class="info-container">
+        <p><strong>Name:</strong> {{ member_data[1] }} {{ member_data[2] }}</p>
+        <p><strong>Date of Birth:</strong> {{ member_data[19] }}</p>
+        <p><strong>Gender:</strong> {{ member_data[20] }}</p>
+        <p><strong>Email:</strong> {{ member_data[4] }}</p>
+        <p><strong>Phone Number:</strong> {{ member_data[3] }}</p>
+        <p><strong>Address:</strong> {{ member_data[5] }}</p>
+        <p><strong>Height:</strong> {{ member_data[6] }}</p>
+        <p><strong>Weight:</strong> {{ member_data[7] }}</p>
+        <p><strong>Diseases:</strong>
+            {% if member_data[8] == 1 %} Heart Problem, {% endif %}
+            {% if member_data[9] == 1 %} Hypertension, {% endif %}
+            {% if member_data[10] == 1 %} Diabetes, {% endif %}
+            {% if member_data[11] == 1 %} Breathing Problem, {% endif %}
+            {% if member_data[12] == 1 %} Hernia, {% endif %}
+            {% if member_data[13] == 1 %} Fracture/Dislocation, {% endif %}
+            {% if member_data[14] == 1 %} Back Pain, {% endif %}
+            {% if member_data[15] == 1 %} Knee Problem, {% endif %}
+            {% if member_data[16] == 1 %} Recent Surgery, {% endif %}
+        </p>
+        <p><strong>Surgery Details:</strong> {{ member_data[17] }}</p>
+    </div>
+</div>
+
+</body>
+</html>
